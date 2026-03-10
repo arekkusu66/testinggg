@@ -2,11 +2,11 @@ package main
 
 import (
     "fmt"
-    "encoding/hex"
+    "time"
 )
 
 func main() {
-    ch := makr(chan string, 1)
+    ch := make(chan string, 1)
 
     go func() {
         time.Sleep(time.Second * 6)
