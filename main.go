@@ -2,9 +2,16 @@ package main
 
 import (
     "fmt"
-    "encoding/hex"
+    "time"
 )
 
 func main() {
-    fmt.Println(hex.EncodeToString([]byte("hello!")))
+    ch := make(chan string, 1)
+
+    go func() {
+        time.Sleep(time.Second * 6)
+        ch <- "jjj"
+    }()
+
+    fmt.Println(<-ch)
 }
