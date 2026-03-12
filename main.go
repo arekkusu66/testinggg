@@ -47,6 +47,7 @@ func main() {
         go func(c Client) {
             var resp = <-c.Resp
             fmt.Println(resp.Ok, resp.Text)
+            close(c.Resp)
         }(client)
     }
 }
